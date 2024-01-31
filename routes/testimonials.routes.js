@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-// TESTIMONIALS
-
 // app.get('/testimonials', (req, res) => {
 //     res.json(db.testimonials);
 // });
