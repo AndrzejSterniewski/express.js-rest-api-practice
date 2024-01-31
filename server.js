@@ -18,18 +18,18 @@ app.get('/testimonials', (req, res) => {
 });
 
 // DONE
+app.get('/testimonials/random', (req, res) => {
+    const random = db[Math.floor(Math.random() * db.length)];
+    res.json(random);
+});
+
+// DONE
 app.get('/testimonials/:id', (req, res) => {
     // const itemId = parseInt(req.params.id);
     // const item = db.find(item => item.id === itemId);
     const item = db.find(item => item.id === parseInt(req.params.id));
     if (!item) res.json('item not found');
     res.json(item);
-});
-
-// NOT WORKING
-app.get('/testimonials/random', (req, res) => {
-    const random = db[Math.floor(Math.random() * db.length)];
-    res.json(random);
 });
 
 // DONE
@@ -43,15 +43,14 @@ app.post('/testimonials', (req, res) => {
     res.json({ message: 'OK' });
 });
 
-// DONE - is it correct?
+// DONE
 app.put('/testimonials/:id', (req, res) => {
     const item = db.find(item => item.id === parseInt(req.params.id));
 
+    if (!item) res.json('item not found');
+
     item.author = req.body.author;
     item.text = req.body.text;
-
-    // verification not working:
-    if (!item) res.json('item not found');
 
     res.json({ message: 'OK' });
     // res.json(item);
