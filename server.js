@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const { v4: uuidv4 } = require('uuid');
 const db = require('./db');
 const cors = require('cors');
 // import routes

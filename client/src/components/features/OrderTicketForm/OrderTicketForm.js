@@ -1,7 +1,7 @@
 import { Button, Form, FormGroup, Label, Input, Row, Col, Alert, Progress } from 'reactstrap';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addSeatRequest, getRequests, loadSeatsRequest } from '../../../redux/seatsRedux';
+import { addSeatRequest, getRequests } from '../../../redux/seatsRedux';
 
 import './OrderTicketForm.scss';
 import SeatChooser from './../SeatChooser/SeatChooser';
@@ -38,8 +38,6 @@ const OrderTicketForm = () => {
     e.preventDefault();
 
     if (order.client && order.email && order.day && order.seat) {
-      // is it correct place for await?
-      await
       dispatch(addSeatRequest(order));
       setOrder({
         client: '',
@@ -51,14 +49,7 @@ const OrderTicketForm = () => {
     } else {
       setIsError(true);
     }
-    // run loadSeatsRequest() after successfully booking a seat
-    dispatch(loadSeatsRequest());
   }
-
-  //setInterval ??
-  dispatch(loadSeatsRequest, () => {
-    setInterval(loadSeatsRequest(), 120000);
-  });
 
   return (
     <Form className="order-ticket-form" onSubmit={submitForm}>
