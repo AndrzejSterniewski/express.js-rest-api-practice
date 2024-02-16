@@ -46,6 +46,7 @@ exports.postNew = async (req, res) => {
             email: email,
         });
         await newSeat.save();
+        req.io.emit('seatsUpdated', await Seat.find());
         res.json({ message: 'OK' });
     } catch (err) {
         res.status(500).json({ message: err });
@@ -62,6 +63,7 @@ exports.putById = async (req, res) => {
             se.client = client;
             se.email = email;
             await se.save();
+            req.io.emit('seatsUpdated', await Seat.find());
             res.json({ message: 'OK' })
         }
         else res.status(404).json({ message: 'Not found...' })
