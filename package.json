@@ -3,11 +3,17 @@
     "chai": "4.2.0",
     "chai-http": "4.3.0",
     "cors": "^2.8.5",
+<<<<<<< HEAD
     "express": "4.17.1",
     "helmet": "3.21.1",
     "mocha": "6.2.1",
     "mongo-sanitize": "1.0.1",
     "mongoose": "7.4.3",
+=======
+    "express": "4.17.3",
+    "mocha": "10.1.0",
+    "mongoose": "7.5.0",
+>>>>>>> e6ed2995f16d61c4d80fd12523cff78fc5dbaa8c
     "onchange": "6.1.0",
     "socket.io": "^4.7.4",
     "uuid": "^9.0.1"
