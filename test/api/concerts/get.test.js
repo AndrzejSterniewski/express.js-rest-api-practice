@@ -11,19 +11,19 @@ const request = chai.request;
 describe('GET /api/concerts', () => {
 
     before(async () => {
-        const testConOne = new Concert({ _id: '65cbbf6df52bf0467057c518', performer: "Amanda Doe", genre: "Disco", price: 25, day: 2, image: "/img/uploads/1fsd324fsdg.jpg", tickets: 7 });
+        const testConOne = new Concert({ _id: '65cbbf6df52bf0467057c518', performer: "Amanda Doe", genre: "Disco", price: 25, day: 2, image: "/img/uploads/1fsd324fsdg.jpg" });
         await testConOne.save();
 
-        const testConTwo = new Concert({ _id: '65cbbf6df52bf0467057c519', performer: "John Doe", genre: "Rock", price: 30, day: 3, image: "/img/uploads/1fsd324fsdg.jpg", tickets: 11 });
+        const testConTwo = new Concert({ _id: '65cbbf6df52bf0467057c519', performer: "John Doe", genre: "Rock", price: 30, day: 3, image: "/img/uploads/1fsd324fsdg.jpg" });
         await testConTwo.save();
 
-        const testConThree = new Concert({ _id: '65cbbf6df52bf0467057c520', performer: "Thomas Jefferson", genre: "Pop", price: 10, day: 1, image: "/img/uploads/1fsd324fsdg.jpg", tickets: 23 });
+        const testConThree = new Concert({ _id: '65cbbf6df52bf0467057c520', performer: "Thomas Jefferson", genre: "Pop", price: 10, day: 1, image: "/img/uploads/1fsd324fsdg.jpg" });
         await testConThree.save();
 
-        const testConFour = new Concert({ _id: '65cbbf6df52bf0467057c521', performer: "Amanda Doe", genre: "Techno", price: 13, day: 1, image: "/img/uploads/1fsd324fsdg.jpg", tickets: 44 });
+        const testConFour = new Concert({ _id: '65cbbf6df52bf0467057c521', performer: "Amanda Doe", genre: "Techno", price: 13, day: 1, image: "/img/uploads/1fsd324fsdg.jpg" });
         await testConFour.save();
 
-        const testConFive = new Concert({ _id: '65cbbf6df52bf0467057c522', performer: "John Doe", genre: "Rock", price: 27, day: 2, image: "/img/uploads/1fsd324fsdg.jpg", tickets: 6 });
+        const testConFive = new Concert({ _id: '65cbbf6df52bf0467057c522', performer: "John Doe", genre: "Rock", price: 27, day: 2, image: "/img/uploads/1fsd324fsdg.jpg" });
         await testConFive.save();
     });
 

@@ -4,6 +4,7 @@ const path = require('path');
 // const db = require('./db');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const helmet = require('helmet');
 
 const server = app.listen(process.env.PORT || 8000, () => {
     console.log('Server is running on port: 8000');
@@ -43,6 +44,8 @@ app.get('*', (req, res) => {
 app.use((req, res) => {
     res.status(404).send('404 not found...');
 });
+
+app.use(helmet());
 
 // mongoose.connect('mongodb+srv://Andrzej:1234@cluster0.mfattfu.mongodb.net/NewWaveDB?retryWrites=true&w=majority', { useNewUrlParser: true });
 // const db = mongoose.connection;
