@@ -1,9 +1,15 @@
 const Concert = require('../models/concert.model');
 const sanitize = require('mongo-sanitize');
+const Seat = require('../models/seat.model');
 
 exports.getAll = async (req, res) => {
     try {
-        res.json(await Concert.find({}));
+        const concerts = await Concert.find().lean();
+        const seats = await Seat.find();
+        for (let concert of concerts) {
+            concert.tickets = seats.filter(seat => seat.day === concert.day).length;
+        }
+        res.json(concerts);
     }
     catch (err) {
         res.status(500).json({ message: err })
